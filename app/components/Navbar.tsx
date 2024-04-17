@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "@/app/constants/logo.png"
 import Image from 'next/image'
 const Navbar = () => {
+
   return (
-    <div className='flex justify-stretch'>
+    <>
+    <div className='flex justify-stretch '>
       <div className='flex space-x-40 justify-start font-extrabold text-3xl' >
         <h1 className='flex'>
         <Image src={logo} className='h-12 w-16' alt="logo" />
@@ -12,11 +14,13 @@ const Navbar = () => {
           </p>
         </h1>
       </div>
-      <div className='absolute right-5 text-2xl'>
-        <input type="text" placeholder='Search...' className='border rounded-xl ' />
+      <div className='absolute right-5 hidden lg:block lg:text-2xl text-lg'>
+        <input type="text" placeholder='Search here...' className='border rounded-xl ' />
         <button className='pl-1 '>🔍</button>
       </div>
     </div>
+    
+       </>
   )
 }
 

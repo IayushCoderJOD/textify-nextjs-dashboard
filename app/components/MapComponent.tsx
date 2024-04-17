@@ -65,15 +65,16 @@ function ImportantMetricCard({ metricName, allTimeMaxValue,allTimeMinValue }:any
 
 
 export default function MapComponent() {
+  const [theme, setTheme] = useState(false);
   const [selectedChart, setSelectedChart] = useState('Amazon stock ');
   const [maxValue, setMaxValue] = useState<number | null>(null);
   const [minValue, setMinValue] = useState<number | null>(null);
 
   const maxValueOfStock = () => {
     let max = -Infinity; 
-    data.forEach((item) => {
-      if (item['Amazon stock '] > max) {
-        max = item['Amazon stock '];
+    data.forEach((item:any) => {
+      if (item[selectedChart] > max) {
+        max = item[selectedChart];
       }
     });
     setMaxValue(max);
@@ -99,16 +100,17 @@ export default function MapComponent() {
 
   return (
     <>
-      <h3 className="text-3xl font-serif   text-tremor-content dark:text-dark-tremor-content">
+      <h3 className=" text-lg md:text-3xl font-serif   text-tremor-content dark:text-dark-tremor-content">
       Historical price movement stocks.
       </h3>
-      <div className=' flex'>        
-      <div className='w-[40%] mt-3 flex justify-center align-middle items-center'>
+      <div className=' md:flex '>        
+      
+      <div className=' w-full lg:w-[40%] mt-3 flex justify-center align-middle items-center'>
 
           <ImportantMetricCard metricName={selectedChart}  allTimeMaxValue={maxValue} allTimeMinValue={minValue} />
         </div>
 
-    <div className='  w-[60%] p-4'>
+    <div className=' w-full  lg:w-[60%] p-4'>
 
       <div className="flex flex-wrap justify-center">
         <select className='rounded-2xl shadow-2xl' value={selectedChart} onChange={(e) => handleChartSelection(e.target.value)}>
@@ -116,10 +118,17 @@ export default function MapComponent() {
           <option value="Textify stock ">Textify stock </option>
           <option value="Microsoft stock ">Microsoft stock </option>
         </select>
+        <div className="hidden lg:block m-3 mt-4 bg-black w-12 rounded-l-full rounded-r-full h-7" >
+     <div onClick={() => {
+       setTheme(!theme)
+      }} className={theme ? "bg-white m-1 ml-6 h-5 w-5 rounded-full" : "bg-white m-1 h-5 w-5 rounded-full"}>
+     </div>
+ </div>
       </div>
-      <div className='bg-black mt-3  shadow-2xl shadow-slate-800 rounded-xl' >
+      <div className={theme? 'bg-black bg-opacity-95 mt-3  shadow-2xl shadow-slate-800 rounded-xl':'bg-white bg-opacity-95 mt-3  shadow-2xl shadow-slate-800 rounded-xl'} >
       {selectedChart && (
         <LineChart
+        
         data={data}
         index="date"
         categories={[selectedChart]}
@@ -127,6 +136,7 @@ export default function MapComponent() {
         valueFormatter={valueFormatter}
         yAxisWidth={55}
         onValueChange={() => {}}
+        
         className="mt-6 block h-96 sm:block"
         />
       )}
