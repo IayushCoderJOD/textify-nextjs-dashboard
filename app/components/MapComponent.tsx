@@ -16,7 +16,7 @@ const valueFormatter = (number:number) => `₹${Intl.NumberFormat('us').format(n
 function ImportantMetricCard({ metricName, allTimeMaxValue,allTimeMinValue }:any) {
   return (
     <div className='  pb-2 mt-3 rounded-2xl shadow-2xl shadow-slate-600 h-60 bg-white hover:translate-x-2 hover:-translate-y-2 '>
-      <h1 className='bg-cyan-200  shadow-2xl rounded-t-xl text-black w-fit text-3xl p-4  font-extrabold mb-7'>{metricName}</h1>
+      <h1 className='bg-cyan-200  shadow-2xl rounded-t-xl text-black w-fit text-3xl p-4  font-extrabold mb-7'>{metricName} card</h1>
       <p className='pl-5 mb-3 text-lg font-semibold text-black '>Highest price- ₹{allTimeMaxValue}</p>
       <p className='pl-5 mb-3 text-lg font-semibold text-black'>Lowest price- ₹{allTimeMinValue}</p>
     </div>
