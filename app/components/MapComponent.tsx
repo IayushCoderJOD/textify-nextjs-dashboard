@@ -117,7 +117,7 @@ export default function MapComponent() {
           <option value="Microsoft stock ">Microsoft stock </option>
         </select>
       </div>
-      <div className='bg-black border mt-3 border-white shadow-2xl shadow-slate-800 rounded-xl' >
+      <div className='bg-black mt-3  shadow-2xl shadow-slate-800 rounded-xl' >
       {selectedChart && (
         <LineChart
         data={data}

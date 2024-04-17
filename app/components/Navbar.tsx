@@ -14,6 +14,7 @@ const Navbar = () => {
       </div>
       <div className='absolute right-5 text-2xl'>
         <input type="text" placeholder='Search...' className='border rounded-xl ' />
+        <button className='pl-1 '>🔍</button>
       </div>
     </div>
   )

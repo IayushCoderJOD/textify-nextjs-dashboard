@@ -4,7 +4,7 @@ const Sidebar = () => {
   return (
     <div className='text-black  h-screen border w-48'>
       <ul className='text-xl'>
-        <li className="py-4 px-2 hover:bg-gray-900 hover:text-white mt-2 text-xl font-medium rounded-xl m-3 pl-6 cursor-pointer">Dashboard</li>
+        <li className="py-4 px-2 hover:bg-gray-100 bg-gray-800 text-white hover:text-gray-900 mt-2 text-xl font-medium rounded-xl m-3 pl-6 cursor-pointer">Dashboard</li>
         <li className="py-4 px-2 hover:bg-gray-900 hover:text-white mt-2 text-xl font-medium rounded-xl m-3 pl-6 cursor-pointer">Explore</li>
         <li className="py-4 px-2 hover:bg-gray-900 hover:text-white mt-2 text-xl font-medium rounded-xl m-3 pl-6 cursor-pointer">Settings</li>
       </ul>
