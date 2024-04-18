@@ -1,3 +1,4 @@
+
 import MapComponent from "./components/MapComponent";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
@@ -12,7 +13,7 @@ export default function Home() {
     <div className="hidden lg:block h-screen  w-[15%]">
     <Sidebar />
     </div>
-    <div className="w-[80%]  p-8 pl-14 pr-14">
+    <div className="w-[100%] h-screen ">
     <MapComponent />
     </div>
   </div>

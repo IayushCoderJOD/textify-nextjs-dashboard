@@ -19,6 +19,7 @@ function ImportantMetricCard({ metricName, allTimeMaxValue,allTimeMinValue }:any
       <h1 className='bg-cyan-200  shadow-2xl rounded-t-xl text-black w-fit text-3xl p-4  font-extrabold mb-7'>{metricName} card</h1>
       <p className='pl-5 mb-3 text-lg font-semibold text-black '>Highest price- ₹{allTimeMaxValue}</p>
       <p className='pl-5 mb-3 text-lg font-semibold text-black'>Lowest price- ₹{allTimeMinValue}</p>
+      <p className='pl-5 mb-3 text-lg font-semibold text-black'>Current price- ₹{(allTimeMaxValue + allTimeMinValue)/2}</p>
     </div>
   );
 }
@@ -65,7 +66,7 @@ function ImportantMetricCard({ metricName, allTimeMaxValue,allTimeMinValue }:any
 
 
 export default function MapComponent() {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(true);
   const [selectedChart, setSelectedChart] = useState('Amazon stock ');
   const [maxValue, setMaxValue] = useState<number | null>(null);
   const [minValue, setMinValue] = useState<number | null>(null);
@@ -99,7 +100,7 @@ export default function MapComponent() {
 
 
   return (
-    <>
+    <div className="bg-[#ffffff] bg-opacity-90 p-7 h-screen">
       <h3 className=" text-lg md:text-3xl font-serif   text-tremor-content dark:text-dark-tremor-content">
       Historical price movement stocks.
       </h3>
@@ -132,7 +133,7 @@ export default function MapComponent() {
         data={data}
         index="date"
         categories={[selectedChart]}
-        colors={['cyan']}
+        colors={theme ? ['cyan'] : ['pink']} 
         valueFormatter={valueFormatter}
         yAxisWidth={55}
         onValueChange={() => {}}
@@ -144,6 +145,6 @@ export default function MapComponent() {
       <Table className="mt-8"></Table>
     </div>
       </div>
-        </>
+        </div>
   );
 }
